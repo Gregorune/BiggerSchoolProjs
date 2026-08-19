@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:mobileFitnes"
+             x:Class="mobileFitnes.MainPage">
+    <ScrollView BackgroundColor="#343a40">
+        <Grid ColumnDefinitions="*,*" RowDefinitions="auto, auto">
+            <Button Text="Wyloguj" Grid.Row="0" Grid.Column="1"
+            BackgroundColor="DarkRed" TextColor="White"
+            Margin="10" FontAttributes="Bold" Clicked="LogOut_Clicked" />
+            <Button Text="Odświerz" Grid.Row="0" Grid.Column="0"
+            BackgroundColor="DarkGreen" TextColor="White"
+            Margin="10" FontAttributes="Bold" Clicked="Refresh_Clicked"/>
+
+            <CollectionView x:Name="ClassesDisplay" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <local:ClassView/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ScrollView>
+</ContentPage>

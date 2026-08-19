@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mobileFitnes.LoginPage"
+             BackgroundColor="#212529">
+    <ScrollView VerticalOptions="Center">
+        <Border Stroke="#495057" StrokeThickness="2" Padding="20" Margin="20" 
+                BackgroundColor="#343a40" StrokeShape="RoundRectangle 15">
+            <VerticalStackLayout Spacing="15">
+
+                <Label x:Name="TitleLabel" Text="Zaloguj się" FontSize="28" 
+                       TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" />
+
+                <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" 
+                       TextColor="White" PlaceholderColor="Gray" />
+
+                <Entry x:Name="PasswordEntry" Placeholder="Hasło" IsPassword="True" 
+                       TextColor="White" PlaceholderColor="Gray" />
+
+                <Entry x:Name="RepeatPasswordEntry" Placeholder="Powtórz hasło" IsPassword="True" 
+                       TextColor="White" PlaceholderColor="Gray" IsVisible="False" />
+
+                <Entry x:Name="UsernameEntry" Placeholder="Nazwa użytkownika" 
+                       TextColor="White" PlaceholderColor="Gray" IsVisible="False" />
+
+                <Button x:Name="SubmitBtn" Text="Zaloguj się" Clicked="OnSubmitClicked"
+                        BackgroundColor="#0d6efd" FontAttributes="Bold" />
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                    <Label x:Name="ToggleText" Text="Nie masz jeszcze konta?" TextColor="White" />
+                    <Label x:Name="ToggleBtnLabel" Text="Zarejestruj się" TextColor="#0d6efd" FontAttributes="Bold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnToggleModeTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+
+                <Border x:Name="AlertBox" IsVisible="False" Padding="10" StrokeShape="RoundRectangle 5">
+                    <Label x:Name="AlertLabel" HorizontalTextAlignment="Center" />
+                </Border>
+            </VerticalStackLayout>
+        </Border>
+    </ScrollView>
+</ContentPage>

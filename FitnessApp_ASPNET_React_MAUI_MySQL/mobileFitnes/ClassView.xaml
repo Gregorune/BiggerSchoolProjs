@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mobileFitnes.ClassView">
+    <Border Stroke="#495057" StrokeThickness="1" BackgroundColor="#212529" 
+            Margin="5" Padding="15" StrokeShape="RoundRectangle 10">
+
+        <VerticalStackLayout Spacing="5">
+            <Label Text="{Binding Name}" 
+                   FontSize="20" FontAttributes="Bold" TextColor="White" />
+
+            <Label Text="{Binding Instructor, StringFormat='Prowadzący: {0}'}" 
+                   TextColor="Cyan" FontSize="12" />
+
+            <Label Text="{Binding Description}" 
+                   TextColor="Gray" FontSize="13" Margin="0,5" />
+
+            <BoxView HeightRequest="1" Color="#495057" HorizontalOptions="Fill" Margin="0,10" />
+
+            <Grid ColumnDefinitions="*, Auto">
+                <VerticalStackLayout Grid.Column="0">
+                    <Label Text="NASTĘPNE ZAJĘCIA:" FontSize="10" TextColor="Gray" />
+                    <Label x:Name="DateLabel" FontAttributes="Bold" TextColor="White" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+                    <Label Text="MIEJSCA:" FontSize="10" TextColor="Gray" HorizontalOptions="End" />
+                    <Label x:Name="SeatsLabel" FontAttributes="Bold" TextColor="White" HorizontalOptions="End" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Button x:Name="ActionButton" 
+                    Clicked="OnActionClicked" 
+                    Margin="0,15,0,0" 
+                    FontAttributes="Bold" />
+        </VerticalStackLayout>
+    </Border>
+</ContentView>
