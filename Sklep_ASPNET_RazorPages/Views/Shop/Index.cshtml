@@ -1,0 +1,35 @@
+﻿@model MyApi.ViewModels.Shop.ShopVM
+
+@{
+    Layout = "~/Views/Layouts/BaseLayout.cshtml";
+}
+<main>
+@if (Model.Products?.Any() == true)
+{
+    <div class="grid">
+        @foreach (var product in Model.Products)
+        {
+            <article class="card product-item">
+                <header class="card__header">
+                    <h1 class="product__title">@product.Title</h1>
+                </header>
+                <div class="card__image">
+                <img src="@product.ImageUrl"
+                    alt="@product.Title">
+                </div>
+                <div class="card__content">
+                    <h2 class="product__price">$@Math.Round(product.Price, 2)</h2>
+                    <p class="product__description">@product.Description</p>
+                </div>
+                <div class="card__actions">
+                    @await Html.PartialAsync("~/Views/Includes/AddToCart.cshtml", product)
+                </div>
+            </article>
+        }
+    </div>
+}
+else
+{
+    <h1>No Products Found!</h1>
+}
+</main>

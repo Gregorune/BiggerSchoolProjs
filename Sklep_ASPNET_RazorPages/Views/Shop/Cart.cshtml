@@ -1,0 +1,26 @@
+﻿@model MyApi.ViewModels.Shop.CartVM
+@{
+    Layout = "~/Views/Layouts/BaseLayout.cshtml";
+}
+
+    <main>
+        <h1>Your cart</h1>
+        @if(Model.CartItems.Count < 1)
+        {
+            <p>Your cart is empty!</p>
+        }
+        else
+        {
+            @foreach (var item in Model.CartItems)
+            {
+                <div class="card" style="display: flex; align-items: center; justify-content: space-between; margin: 15px; padding: 10px">
+                    <h3>@item.Product.Title</h3>
+                    <h3>Quantity: @item.Quantity</h3>
+                    <form action="/cart/remove" method="post" style="margin: 0">
+                        <button class="btn-danger" type="submit">Delete</button>
+                        <input type="hidden" name="removeId" value="@item.">
+                    </form>
+                </div>
+            }
+        }
+    </main>

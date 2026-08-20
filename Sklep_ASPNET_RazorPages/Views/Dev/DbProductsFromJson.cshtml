@@ -1,0 +1,24 @@
+﻿@model MyApi.ViewModels.BaseViewModel
+@{
+    Layout = "~/Views/Layouts/BaseLayout.cshtml";
+}
+
+    <main>
+        <h3>Insert Products in JSON</h3>
+        <textarea id="jsonInput" rows="10" cols="50"></textarea>
+        <button onclick="sendJson()">Send</button>
+
+        <script>
+                    async function sendJson() {
+                        const text = document.getElementById("jsonInput").value;
+
+                        const response = await fetch("/dev/db/products/fromjson", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: text
+                        });
+                    }
+        </script>
+    </main>

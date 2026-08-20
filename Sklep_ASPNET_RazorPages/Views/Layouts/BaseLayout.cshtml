@@ -1,0 +1,23 @@
+﻿@model MyApi.ViewModels.BaseViewModel;
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@(Model.Title)</title>
+    @foreach (string cssHref in Model.Css)
+    {
+        <link rel="stylesheet" href="@(cssHref)">
+    }
+</head>
+<body>
+    @await Html.PartialAsync("~/Views/Includes/Navigation.cshtml")
+
+    @RenderBody()
+
+    @foreach (var srcHref in Model.JsScripts)
+    {
+        <script src="@(srcHref)"></script>
+    }
+</body>
+</html>

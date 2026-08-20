@@ -1,0 +1,27 @@
+@model MyApi.ViewModels.Admin.EditProductVM
+@{
+    Layout = "~/Views/Layouts/BaseLayout.cshtml";
+}
+
+    <main>
+        <form class="product-form" action="/admin/@(Model.Editing ? $"edit-product/{Model.p_id}" : "add-product")" method="POST">
+            <div class="form-control">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" value="@(Model.Editing ? Model.p_name : "")">
+            </div>
+            <div class="form-control">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" name="imageUrl" id="imageUrl" value="@(Model.Editing ? Model.p_imgurl : "")">
+            </div>
+            <div class="form-control">
+                <label for="price">Price</label>
+                <input type="number" name="price" id="price" step="0.01" value="@(Model.Editing ? Model.p_price : "")">
+            </div>
+            <div class="form-control">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" rows="5">@(Model.Editing ? Model.p_description : "")</textarea>
+            </div>
+
+            <button class="btn" type="submit">@(Model.Editing ? "Edit" : "Add") Product</button>
+        </form>
+    </main>

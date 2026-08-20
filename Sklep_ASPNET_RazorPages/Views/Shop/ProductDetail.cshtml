@@ -1,0 +1,15 @@
+﻿@model MyApi.ViewModels.Shop.ProductDetailVM
+@{
+    Layout = "~/Views/Layouts/BaseLayout.cshtml";
+}
+
+<main class="card product-item">
+    <h1> @(Model.Product.Title) </h1>
+    <hr>
+    <div class="card__image">
+        <img src="@Model.Product.ImageUrl" alt="@Model.Product.Title">
+    </div>
+    <h2>$@(Model.Product.Price)</h2>
+    <p>@(Model.Product.Description)</p>
+    @await Html.PartialAsync("~/Views/Includes/AddToCart.cshtml", Model.Product)
+</main>
